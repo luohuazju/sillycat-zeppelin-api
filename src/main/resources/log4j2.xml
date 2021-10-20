@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="ERROR" shutdownHook="disable">
+ <Appenders>
+   <Console name="CONSOLE" target="SYSTEM_OUT">
+     <PatternLayout pattern="(%d{yyyy-MM-dd'T'HH:mm:ss.SXXX}) %-7p - %C %M - %m\r\n%throwable{full}"/>
+   </Console>
+ </Appenders>
+ <Loggers>
+   <Logger name="com.sillycat" level="INFO" />
+   <Root level="ALL">
+     <AppenderRef ref="CONSOLE" level="INFO"/>
+   </Root>
+ </Loggers>
+</Configuration>

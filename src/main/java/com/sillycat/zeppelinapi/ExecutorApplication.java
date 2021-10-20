@@ -1,16 +1,14 @@
 package com.sillycat.zeppelinapi;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class ExecutorApplication {
 
-	private static final Logger logger = LoggerFactory.getLogger(ExecutorApplication.class);
-
 	public static void main(String[] args) {
-		logger.info("start the application-------------");
+		log.info("start the application-------------");
 
-		logger.info("application finished--------------");
+		log.info("application finished--------------");
 	}
 
 }
