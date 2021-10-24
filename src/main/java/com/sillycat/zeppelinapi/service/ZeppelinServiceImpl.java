@@ -43,7 +43,7 @@ public class ZeppelinServiceImpl implements ZeppelinService{
 		try {
 			log.info("start to login to server");
 			log.info("username=" + this.getUsername());
-			log.info("password=" + this.getPassword());
+			//log.info("password=" + this.getPassword());
 			client.login(this.getUsername(), this.getPassword());
 			log.info("zeppelin login successful.");
 		} catch (Exception e) {

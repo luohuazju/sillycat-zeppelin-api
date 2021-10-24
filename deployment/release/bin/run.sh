@@ -1,4 +1,6 @@
 #!/bin/sh
 
-java -Dbuild.env=prod\
-	 -jar ./lib/sillycat-zeppelin-*.jar $1
+java -Dzeppelin.server=${ZEPPELIN_SERVER} \
+     -Dzeppelin.username=${ZEPPELIN_USERNAME} \
+     -Dzeppelin.password=${ZEPPELIN_PASSWORD} \
+     -jar ./lib/sillycat-zeppelin-*.jar $1
