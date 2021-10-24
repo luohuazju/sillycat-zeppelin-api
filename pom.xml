@@ -17,6 +17,11 @@
 	</properties>
 
 	<dependencies>
+		<dependency>
+			<groupId>org.apache.zeppelin</groupId>
+			<artifactId>zeppelin-client</artifactId>
+			<version>0.10.0</version>
+		</dependency>
 		<!-- AKKA -->
 		<dependency>
 			<groupId>com.typesafe.akka</groupId>
@@ -85,18 +90,20 @@
 				<artifactId>maven-assembly-plugin</artifactId>
 				<version>3.3.0</version>
 				<configuration>
-					<descriptorRefs>
-						<descriptorRef>jar-with-dependencies</descriptorRef>
-					</descriptorRefs>
+					<appendAssemblyId>true</appendAssemblyId>  
 					<archive>
 						<manifest>
 							<mainClass>com.sillycat.zeppelinapi.ExecutorApplication</mainClass>
 						</manifest>
 					</archive>
+					<descriptors>
+						<descriptor>deployment/release/assembly-jar.xml</descriptor>
+						<descriptor>deployment/release/assembly-conf.xml</descriptor>
+					</descriptors>
 				</configuration>
 				<executions>
 					<execution>
-						<id>assemble-all</id>
+						<id>make-assembly</id>
 						<phase>package</phase>
 						<goals>
 							<goal>single</goal>

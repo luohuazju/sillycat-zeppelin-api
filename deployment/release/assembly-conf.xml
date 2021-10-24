@@ -1,0 +1,43 @@
+<assembly xmlns="http://maven.apache.org/ASSEMBLY/2.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/ASSEMBLY/2.0.0 http://maven.apache.org/xsd/assembly-2.0.0.xsd">
+	<id>bundle</id>
+	<formats>
+		<format>tar.gz</format>
+	</formats>
+	<includeBaseDirectory>true</includeBaseDirectory>
+	<fileSets>
+		<!--  script  -->
+        <fileSet>
+            <directory>deployment/release/bin</directory>
+            <includes>
+                <include>*.sh</include>
+            </includes>
+            <fileMode>0755</fileMode>
+            <outputDirectory>bin/</outputDirectory>
+        </fileSet>
+        <fileSet>
+            <directory>src/main/resources</directory>
+            <includes>
+                <include>config-*.properties</include>
+                <include>log4j2.xml</include> 
+            </includes>
+            <fileMode>0644</fileMode>
+            <outputDirectory>conf/</outputDirectory>
+        </fileSet>
+        <!--  executable jar -->
+        <fileSet>
+            <directory>${project.build.directory}</directory>
+            <outputDirectory>lib/</outputDirectory>
+            <includes>
+                <include>${project.artifactId}-${project.version}-jar-with-dependencies.jar</include>
+            </includes>
+            <fileMode>0755</fileMode>
+        </fileSet>
+        <!--  logging  -->
+        <fileSet>
+            <outputDirectory>logs/</outputDirectory>
+            <excludes><exclude>**/*</exclude></excludes>
+        </fileSet>
+    </fileSets>
+</assembly>

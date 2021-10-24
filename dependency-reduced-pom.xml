@@ -21,7 +21,7 @@
         <version>3.3.0</version>
         <executions>
           <execution>
-            <id>assemble-all</id>
+            <id>make-assembly</id>
             <phase>package</phase>
             <goals>
               <goal>single</goal>
@@ -29,14 +29,16 @@
           </execution>
         </executions>
         <configuration>
-          <descriptorRefs>
-            <descriptorRef>jar-with-dependencies</descriptorRef>
-          </descriptorRefs>
+          <appendAssemblyId>true</appendAssemblyId>
           <archive>
             <manifest>
               <mainClass>com.sillycat.zeppelinapi.ExecutorApplication</mainClass>
             </manifest>
           </archive>
+          <descriptors>
+            <descriptor>deployment/release/assembly-jar.xml</descriptor>
+            <descriptor>deployment/release/assembly-conf.xml</descriptor>
+          </descriptors>
         </configuration>
       </plugin>
       <plugin>
